@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBaseline_toBaselineOf="@id/date_holiday"/>
     
-    <ImageView
+    <TextView
         android:id="@+id/date_holiday"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -23,5 +23,6 @@
         app:layout_constraintStart_toEndOf="@id/text_name_holiday"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/todo" />
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

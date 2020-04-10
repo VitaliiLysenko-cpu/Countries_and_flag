@@ -12,27 +12,27 @@ import com.example.countriesandflag.pojo.Country;
 import com.squareup.picasso.Picasso;
 
 
-public class ViewHolderCountries extends RecyclerView.ViewHolder {
+class ViewHolderCountries extends RecyclerView.ViewHolder {
     
     private TextView name;
     private ImageView flag;
     private CountriesAdapter.OnHolidayClickListener onHolidayClickListener;
     
-    public ViewHolderCountries(@NonNull final View itemView
+    ViewHolderCountries(@NonNull final View itemView
             , final CountriesAdapter.OnHolidayClickListener onHolidayClickListener) {
         super(itemView);
-        name = itemView.findViewById(R.id.text_name_country);
-        flag = itemView.findViewById(R.id.flag_country);
+        name = itemView.findViewById(R.id.text_name_holiday);
+        flag = itemView.findViewById(R.id.date_holiday);
         
         this.onHolidayClickListener = onHolidayClickListener;
     }
     
-    public void bind(Country country) {
+    void bind(Country country) {
         
         name.setText(country.name);
         Picasso.get()
                 .load(country.flag)
                 .into(flag);
-        itemView.setOnClickListener(v -> onHolidayClickListener.OnHolidayClick(getAdapterPosition()));
+        itemView.setOnClickListener(v -> onHolidayClickListener.OnHolidayClick(ViewHolderCountries.this.getAdapterPosition()));
     }
 }

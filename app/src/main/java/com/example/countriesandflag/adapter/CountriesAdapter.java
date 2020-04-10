@@ -42,11 +42,11 @@ public class CountriesAdapter extends RecyclerView.Adapter<ViewHolderCountries> 
         this.countries = countries;
     }
     
-    public OnHolidayClickListener getListener() {
-        return listener;
-    }
-    
     public interface OnHolidayClickListener {
         void OnHolidayClick(int adapterPosition);
+    }
+    
+    public Country returnDataCountry (int position){
+       return countries[position];
     }
 }
