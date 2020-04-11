@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.countriesandflag.CountriesAPI;
 import com.example.countriesandflag.NetworkClient;
 import com.example.countriesandflag.R;
-import com.example.countriesandflag.adapter.CountriesAdapter;
+import com.example.countriesandflag.adapter.CountriesAdapter;            
 import com.example.countriesandflag.pojo.Countries;
 
 import retrofit2.Call;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView();
     }
     
-    private void clickAdapter() {
+    private void creatingAdapter() {
         CountriesAdapter.OnHolidayClickListener onHolidayClickListener = adapterPosition -> {
             String code = adapterCountry.returnDataCountry(adapterPosition).code;
             Intent intent = new Intent(MainActivity.this, HolidayActivity.class);
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView() {
         listCountriesName = findViewById(R.id.recycler_view);
         progressBar = findViewById(R.id.progress_bar);
-        clickAdapter();
+        creatingAdapter();
         
         listCountriesName.setAdapter(adapterCountry);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

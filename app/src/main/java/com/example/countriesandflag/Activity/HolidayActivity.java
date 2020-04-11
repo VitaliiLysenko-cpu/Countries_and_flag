@@ -1,21 +1,19 @@
 package com.example.countriesandflag.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.countriesandflag.HolidaysAPI;
 import com.example.countriesandflag.NetworkClient;
 import com.example.countriesandflag.R;
 import com.example.countriesandflag.adapter.HolidayAdapter;
-import com.example.countriesandflag.pojo.Countries;
-import com.example.countriesandflag.pojo.Country;
-import com.example.countriesandflag.pojo.Holiday;
 import com.example.countriesandflag.pojo.Holidays;
 
 import retrofit2.Call;
@@ -52,7 +50,7 @@ public class HolidayActivity extends AppCompatActivity {
         Call<Holidays> holidaysCall = holidaysAPI.getHolidays(code);
         holidaysCall.enqueue(new Callback<Holidays>() {
             @Override
-            public void onResponse(Call<Holidays> call, Response<Holidays> response) {
+            public void onResponse(@NonNull Call<Holidays>  call, @NonNull Response<Holidays> response) {
                     Holidays holidaysResponse = response.body();
                     assert holidaysResponse != null;
                     holidayAdapter.setHolidays(holidaysResponse.holidays);
@@ -61,7 +59,7 @@ public class HolidayActivity extends AppCompatActivity {
             }
     
             @Override
-            public void onFailure(Call<Holidays> call, Throwable t) {
+            public void onFailure(@NonNull Call<Holidays> call, @NonNull Throwable t) {
               visibility();
             }
         });
